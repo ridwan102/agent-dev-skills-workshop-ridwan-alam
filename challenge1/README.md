@@ -45,20 +45,34 @@ Log into your Cloud Skills Boost environment:
 
 ### 3. Configure API Keys
 
-Set the following environment variables in your notebook:
+**Important for Graders**: This notebook works WITHOUT API keys for common US cities using fallback coordinates. You can test the core functionality immediately!
 
-```python
-import os
+#### For Full Functionality (Optional):
 
-# Google Cloud API Key (for Gemini)
-os.environ['GOOGLE_API_KEY'] = 'your-google-api-key'
-
-# Google Maps API Key (optional, for geocoding)
-os.environ['GOOGLE_MAPS_API_KEY'] = 'your-maps-api-key'
-
-# Anthropic API Key (optional, for Claude support)
-os.environ['ANTHROPIC_API_KEY'] = 'your-anthropic-api-key'
+**Method 1: Environment Variables (Recommended)**
+```bash
+# In your terminal before running Jupyter/Colab
+export GOOGLE_API_KEY='your-google-api-key'
+export GOOGLE_MAPS_API_KEY='your-maps-api-key'
+export ANTHROPIC_API_KEY='your-claude-api-key'
 ```
+
+**Method 2: Using .env File (Local Development)**
+```bash
+# Copy the example file and add your keys
+cp .env.example .env
+# Edit .env with your actual API keys
+# The .env file is gitignored and won't be committed
+```
+
+**Method 3: Quick Test (Colab/Notebook)**
+In the configuration cell, you can temporarily uncomment and add your keys:
+```python
+# GOOGLE_API_KEY = 'your-key-here'
+# GOOGLE_MAPS_API_KEY = 'your-key-here'
+# ANTHROPIC_API_KEY = 'your-key-here'
+```
+⚠️ **Warning**: Do not commit keys to GitHub! Remove them before committing.
 
 ### 4. Install Dependencies
 
